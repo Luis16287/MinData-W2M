@@ -1,0 +1,64 @@
+<div class="container">
+    <h1 class="title mb-16">Prueba Técnica W2M Angular</h1>
+    <div class="button-container">
+        <button mat-fab color="add" aria-label="Agregar Heroe" (click)="addData()" matTooltip="Agregar Heroe">
+            <mat-icon>add</mat-icon>
+        </button>
+        <form [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label>Filtro</mat-label>
+                <input matInput autocomplete="off" formControlName="search">
+            </mat-form-field>
+            <button class="app-button large" [ngClass]="{disabled: form.invalid}" (click)="searchData()">
+                Buscar
+            </button>
+        </form>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 heroes-table">
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <!-- Photo Column -->
+        <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef>Foto</th>
+            <td mat-cell *matCellDef="let element">
+                <picture>
+                    <img class="rounded-circle" src="{{element.photo}}" alt="{{element.name}}">
+                </picture>
+            </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <div class="action-buttons">
+                    <button mat-fab color="delete" aria-label="Eliminar Heroe" (click)="removeData(element.id)"
+                        matTooltip="Eliminar">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-fab color="edit" aria-label="Eliminar Heroe" (click)="editData(element.id)"
+                        matTooltip="Editar">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Seleccione página de Heroes">
+    </mat-paginator>
+</div>

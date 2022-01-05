@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="title mb-16">{{title}}</h1>
+    <form [formGroup]="heroForm" autocomplete="off" class="w-75-p" *ngIf="heroForm">
+        <div class="row">
+            <div fxFlex="100">
+                <div class="img-wrapper">
+                    <input #uploadInput type="file" style="display: none;" accept="image/*"
+                        (change)="fileChangeListener($event)" autocomplete="off">
+                    <img class="rounded-circle" matTooltip="Subir Foto" matTooltipPosition="right"
+                        src="{{heroForm.get('photo')?.value}}" onerror="this.src = 'assets/hero/default.jpg'"
+                        (click)="uploadInput.click()">
+                    <div class="img-overlay">
+                        <button matTooltip="Subir Foto" matTooltipPosition="right" mat-mini-fab color="warn"
+                            (click)="uploadInput.click()">
+                            <mat-icon style="color: #ffffff;">photo_camera</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="100" class="ml-4 mt-20">
+                <mat-form-field class="w-100-p">
+                    <input matInput name="Nombre" formControlName="name" placeholder="Nombre" required minlength="5"
+                        autocomplete="off" appUppercase>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="actions py-12 px-24" fxLayout="row" fxLayoutAlign="end center">
+            <button class="app-button outlined mr-8" (click)="goToHeroesList()" aria-label="CANCEL">
+                Cancelar
+            </button>
+
+            <button class="app-button" (click)="confirm()" [ngClass]="{disabled: heroForm.invalid}" aria-label="'SAVE'">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>

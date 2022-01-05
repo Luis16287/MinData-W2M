@@ -1,0 +1,28 @@
+<div class="dialog-container">
+    <mat-toolbar matDialogTitle class="dialog-bar">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <h2 mat-dialog-title class="title dialog-title">
+                Recortar foto
+            </h2>
+            <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div mat-dialog-content style="padding: 0 !important; margin: 0 !important; overflow: hidden !important;">
+        <div class="image-cropper-container">
+            <img-cropper #imgCropper id="imgCropper" [image]="imageData" [settings]="cropperSettings"></img-cropper>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="actions py-12 px-24" fxLayout="row" fxLayoutAlign="end center">
+        <button class="app-button outlined mr-8" (click)="dialogRef.close()" aria-label="CANCEL">
+            Cancelar
+        </button>
+
+        <button class="app-button" (click)="confirm()" aria-label="'SAVE'">
+            Aceptar
+        </button>
+    </div>
+</div>

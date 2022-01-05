@@ -1,0 +1,58 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .mat-toolbar.dialog-bar {
+    background: #f44336;
+    color: #fff;
+  }
+  .dialog-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    align-self: center;
+  }
+
+  .dialog-buttons {
+    align-self: center;
+    margin: 0;
+    padding-top: 10%;
+    .dialog-button {
+      width: 109px;
+      height: 40px;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 14px;
+      line-height: 24px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .img-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      cursor: pointer;
+      margin: 0 auto !important;
+      width: 200px;
+      height: 200px;
+    }
+
+    .img-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 30%;
+    }
+
+    .img-overlay:before {
+      content: " ";
+      display: block;
+      /* adjust 'height' to position overlay content vertically */
+      height: 45%;
+    }
+  }
+}

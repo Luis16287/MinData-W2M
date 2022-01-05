@@ -1,0 +1,57 @@
+.container {
+  padding: 15px;
+  .title {
+    display: flex;
+    justify-content: center;
+    color: #db580b;
+    font-weight: bolder;
+  }
+  .button-container {
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    .mat-add {
+      background-color: green;
+      color: #fff;
+    }
+    form {
+      .app-button {
+        margin-left: 10px;
+        -ms-transform: translateY(-20%);
+        transform: translateY(-20%);
+      }
+    }
+  }
+
+  .heroes-table {
+    width: 100%;
+    .mat-column-id {
+      flex: 0 0 10%;
+    }
+    .mat-column-name {
+      flex: 0 0 40%;
+    }
+    .mat-column-photo {
+      flex: 0 0 40%;
+    }
+    .mat-column-action {
+      flex: none;
+      width: 100px;
+    }
+    img {
+      height: 80px;
+    }
+    .action-buttons {
+      display: flex;
+      .mat-delete {
+        background-color: red;
+        color: #fff;
+        margin-right: 10px;
+      }
+      .mat-edit {
+        background-color: orange;
+        color: #fff;
+      }
+    }
+  }
+}

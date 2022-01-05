@@ -1,0 +1,14 @@
+.dialog-container {
+    .mat-toolbar.dialog-bar {
+        background: #f44336;
+        color: #fff
+    }
+    .image-cropper-container {
+        max-width: 1024px;
+    }
+
+    .actions {
+        margin: 0 5px 0 0 !important;
+        padding-bottom: 0 !important;
+      }
+}
